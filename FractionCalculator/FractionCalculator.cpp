@@ -26,6 +26,12 @@ int main()
 
 			std::stringstream(input) >> std::ws >> left >> std::ws >> op >> std::ws >> right;
 
+			// Validate operands. (Allow only whole numbers and fractions.)
+			if (left.zero() || right.zero())
+			{
+				throw std::invalid_argument("only whole numbers and fractions are allowed");
+			}
+
 			// Execute the specified operation.
 			Fraction result;
 
